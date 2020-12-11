@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import pandas as pd
 import pandas_datareader.data as web
 import numpy as np
 
@@ -10,6 +11,7 @@ class stockViewer():
                     start="20200101",
                     end="20201208",
                     data_source="yahoo")
+    self.df.index = pd.to_datetime(self.df.index)
 
   def d2d_pctchange(self, inplace=True):
     self.df["Day_Pct_Change"] = self.df['Adj Close'].pct_change()*100
@@ -41,11 +43,9 @@ class stockViewer():
     elif x <= -7:
       return 'Bear drop'
 
-  def add_trend(self):
+  def add_trend(self,inplace = True):
     self.df['Trend'] = np.zeros(self.df['Day_Pct_Change'].count())
-    print(self.df.tail())
     self.df['Trend'] = self.df['Day_Pct_Change'].apply(lambda x: self.bull_or_bear(x))
-    print(self.df.head())
 
   def plot_trend_piechart(self):
     pie_data = self.df.groupby('Trend')
