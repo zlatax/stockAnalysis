@@ -7,7 +7,8 @@ Additional candlestick pattern recognition is implemented to provide insight for
 
 ## Installation
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
+//SAMPLE
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install stockAnalysis.
 
 ```bash
 pip install foobar
@@ -18,8 +19,8 @@ pip install foobar
 ```python
 import stockAnalysis.analysis as sa 
 
-foobar.sa.stockViewer("IBM") # a stockViewer object with functions to analyse a certain ticker.
-foobar.sa.candleRecognition() # candleRecognition object with tools to analyse market data ascandlestick patterns.
+instance = sa.stockViewer("IBM") # a stockViewer object with functions to analyse a certain ticker.
+instance = sa.candleRecognition() # candleRecognition object with tools to analyse market data ascandlestick patterns.
 ¥
 ```
 
